@@ -11,5 +11,9 @@ func (u *mathUseCase) Multiply(ctx context.Context, input *mathMultiplyInput) (*
 	if err != nil {
 		return nil, apperrors.Wrap(err)
 	}
-	return &MathMultiplyOutput{Value: u.mathService.FormatNumber(product, input.Base)}, nil
+	valuestr, err := u.mathService.FormatNumber(product, input.Base)
+	if err != nil {
+		return nil, apperrors.Wrap(err)
+	}
+	return &MathMultiplyOutput{Value: valuestr}, nil
 }

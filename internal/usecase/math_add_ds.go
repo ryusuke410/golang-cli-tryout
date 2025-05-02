@@ -1,6 +1,8 @@
 package usecase
 
-import "fmt"
+import (
+	"ryusuke410/golang-cli-tryout/pkg/cvalidator"
+)
 
 // MathAddOutput represents the output for the add operation
 type MathAddOutput struct {
@@ -9,16 +11,18 @@ type MathAddOutput struct {
 
 // mathAddInput represents the input for the add operation
 type mathAddInput struct {
-	Numbers []float64
+	Numbers []float64 `validate:"min=2"`
 	Round   bool
 }
 
 func NewMathAddInput(numbers []float64, round bool) (*mathAddInput, error) {
-	if len(numbers) < 2 {
-		return nil, fmt.Errorf("at least 2 numbers are required")
-	}
-	return &mathAddInput{
+	var err error
+	input := &mathAddInput{
 		Numbers: numbers,
 		Round:   round,
-	}, nil
+	}
+	if err = cvalidator.Struct(input); err != nil {
+		return nil, err
+	}
+	return input, nil
 }

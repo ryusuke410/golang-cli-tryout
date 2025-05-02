@@ -41,9 +41,12 @@ func (s *mathService) Round(num float64) float64 {
 	return math.Round(num)
 }
 
-func (s *mathService) FormatNumber(num float64, base int) string {
-	if base <= 0 {
-		return fmt.Sprintf("%.2f", num)
+func (s *mathService) FormatNumber(num float64, base int) (string, error) {
+	if !(base == 0 || (2 <= base && base <= 36)) {
+		return "", fmt.Errorf("invalid base")
 	}
-	return strconv.FormatInt(int64(num+0.5), base)
+	if base == 0 {
+		return fmt.Sprintf("%.2f", num), nil
+	}
+	return strconv.FormatInt(int64(num+0.5), base), nil
 }
