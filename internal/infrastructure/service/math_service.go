@@ -2,6 +2,7 @@ package service
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 
 	"ryusuke410/golang-cli-tryout/internal/domain/service"
@@ -25,24 +26,24 @@ func (s *mathService) Sum(numbers []float64) float64 {
 	return sum
 }
 
-func (s *mathService) Product(numbers []float64) float64 {
+func (s *mathService) Product(numbers []float64) (float64, error) {
 	if len(numbers) < 2 {
-		panic("at least 2 numbers are required")
+		return 0, fmt.Errorf("at least 2 numbers are required")
 	}
 	var product float64 = 1
 	for _, num := range numbers {
 		product *= num
 	}
-	return product
+	return product, nil
 }
 
 func (s *mathService) Round(num float64) float64 {
-	return float64(int(num + 0.5))
+	return math.Round(num)
 }
 
 func (s *mathService) FormatNumber(num float64, base int) string {
 	if base <= 0 {
 		return fmt.Sprintf("%.2f", num)
 	}
-	return strconv.FormatInt(int64(num), base)
+	return strconv.FormatInt(int64(num+0.5), base)
 }
