@@ -30,10 +30,7 @@ func newTransformBase64Command(transformUseCase usecase.ITransformUseCase) *cobr
 		if err != nil {
 			return err
 		}
-		fmt.Print(result.Value)
-		if !noNewline {
-			fmt.Println()
-		}
+		printResult(result.Value, noNewline)
 		return nil
 	}
 	return c
@@ -61,10 +58,7 @@ func newTransformUrlEncodeCommand(transformUseCase usecase.ITransformUseCase) *c
 		if err != nil {
 			return err
 		}
-		fmt.Print(result.Value)
-		if !noNewline {
-			fmt.Println()
-		}
+		printResult(result.Value, noNewline)
 		return nil
 	}
 	return c
@@ -92,10 +86,7 @@ func newTransformEscapeCommand(transformUseCase usecase.ITransformUseCase) *cobr
 		if err != nil {
 			return err
 		}
-		fmt.Print(result.Value)
-		if !noNewline {
-			fmt.Println()
-		}
+		printResult(result.Value, noNewline)
 		return nil
 	}
 	return c
@@ -113,4 +104,11 @@ Available transformations: base64, url-encode, escape`,
 	c.AddCommand(newTransformUrlEncodeCommand(transformUseCase))
 	c.AddCommand(newTransformEscapeCommand(transformUseCase))
 	return c
+}
+
+func printResult(value string, noNewline bool) {
+	fmt.Print(value)
+	if !noNewline {
+		fmt.Println()
+	}
 }
