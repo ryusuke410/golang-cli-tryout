@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-func (u *transformUseCase) Escape(ctx context.Context, input *transformEscapeInput) (*TransformEscapeOutput, error) {
+func (u *transformUseCase) Escape(ctx context.Context, input *TransformEscapeInput) (*TransformEscapeOutput, error) {
 	return &TransformEscapeOutput{
-		Value: strings.ReplaceAll(strings.ReplaceAll(input.Text, `\`, `\\`), `"`, `\"`),
+		Value: strings.ReplaceAll(strings.ReplaceAll(input.text, `\`, `\\`), `"`, `\"`),
 	}, nil
 }

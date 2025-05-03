@@ -9,14 +9,14 @@ import (
 
 func TestRegisterValidation(t *testing.T) {
 	t.Parallel()
-	RegisterValidation("c_base", func(fl validator.FieldLevel) bool {
+	RegisterValidation("test_base", func(fl validator.FieldLevel) bool {
 		base := fl.Field().Int()
 		return base == 0 || (2 <= base && base <= 36)
 	})
 
 	type input struct {
 		Numbers []float64 `validate:"min=2"`
-		Base    int       `validate:"c_base"`
+		Base    int       `validate:"test_base"`
 	}
 
 	testCases := []struct {
@@ -71,14 +71,14 @@ func TestRegisterValidation(t *testing.T) {
 
 func TestStruct(t *testing.T) {
 	t.Parallel()
-	RegisterValidation("c_base", func(fl validator.FieldLevel) bool {
+	RegisterValidation("test_base", func(fl validator.FieldLevel) bool {
 		base := fl.Field().Int()
 		return base == 0 || (2 <= base && base <= 36)
 	})
 
 	type input struct {
 		Numbers []float64 `validate:"min=2"`
-		Base    int       `validate:"c_base"`
+		Base    int       `validate:"test_base"`
 	}
 
 	testCases := []struct {

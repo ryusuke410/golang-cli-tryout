@@ -6,8 +6,8 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"ryusuke410/golang-cli-tryout/internal/pkg/fp"
 	"ryusuke410/golang-cli-tryout/internal/usecase"
-	"ryusuke410/golang-cli-tryout/pkg/fp"
 )
 
 func newMathAddCommand(mathUseCase usecase.IMathUseCase) *cobra.Command {

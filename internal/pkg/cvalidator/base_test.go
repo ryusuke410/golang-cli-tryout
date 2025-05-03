@@ -67,9 +67,9 @@ func TestBaseValidator(t *testing.T) {
 			t.Parallel()
 
 			testStruct := struct {
-				Base int `validate:"c_base"`
+				base int `validate:"c_base"`
 			}{
-				Base: tc.input.base,
+				base: tc.input.base,
 			}
 
 			err := Struct(testStruct)

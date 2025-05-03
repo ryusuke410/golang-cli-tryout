@@ -1,0 +1,6 @@
+all: true
+recursive: true
+packages:
+  ryusuke410/golang-cli-tryout/internal/domain:
+  ryusuke410/golang-cli-tryout/internal/usecase:
+  ryusuke410/golang-cli-tryout/internal/pkg:

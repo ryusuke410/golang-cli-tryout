@@ -1,25 +1,23 @@
 package usecase
 
 import (
-	"ryusuke410/golang-cli-tryout/pkg/cvalidator"
+	"ryusuke410/golang-cli-tryout/internal/pkg/cvalidator"
 )
 
-// MathAddOutput represents the output for the add operation
 type MathAddOutput struct {
 	Value float64
 }
 
-// mathAddInput represents the input for the add operation
-type mathAddInput struct {
-	Numbers []float64 `validate:"min=2"`
-	Round   bool
+type MathAddInput struct {
+	numbers []float64 `validate:"min=2"`
+	round   bool
 }
 
-func NewMathAddInput(numbers []float64, round bool) (*mathAddInput, error) {
+func NewMathAddInput(numbers []float64, round bool) (*MathAddInput, error) {
 	var err error
-	input := &mathAddInput{
-		Numbers: numbers,
-		Round:   round,
+	input := &MathAddInput{
+		numbers: numbers,
+		round:   round,
 	}
 	if err = cvalidator.Struct(input); err != nil {
 		return nil, err

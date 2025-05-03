@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-func (u *transformUseCase) UrlEncode(ctx context.Context, input *transformUrlEncodeInput) (*TransformUrlEncodeOutput, error) {
+func (u *transformUseCase) UrlEncode(ctx context.Context, input *TransformUrlEncodeInput) (*TransformUrlEncodeOutput, error) {
 	return &TransformUrlEncodeOutput{
-		Value: strings.ReplaceAll(strings.ReplaceAll(input.Text, " ", "%20"), "&", "%26"),
+		Value: strings.ReplaceAll(strings.ReplaceAll(input.text, " ", "%20"), "&", "%26"),
 	}, nil
 }
