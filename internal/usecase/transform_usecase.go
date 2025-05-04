@@ -6,9 +6,9 @@ import (
 
 // TransformUseCase represents the transform use case
 type ITransformUseCase interface {
-	Base64Encode(ctx context.Context, input *transformBase64Input) (*TransformBase64Output, error)
-	Escape(ctx context.Context, input *transformEscapeInput) (*TransformEscapeOutput, error)
-	UrlEncode(ctx context.Context, input *transformUrlEncodeInput) (*TransformUrlEncodeOutput, error)
+	Base64Encode(ctx context.Context, input *TransformBase64Input) (*TransformBase64Output, error)
+	Escape(ctx context.Context, input *TransformEscapeInput) (*TransformEscapeOutput, error)
+	UrlEncode(ctx context.Context, input *TransformUrlEncodeInput) (*TransformUrlEncodeOutput, error)
 }
 
 // transformUseCase implements TransformUseCase

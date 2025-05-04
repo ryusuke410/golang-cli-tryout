@@ -29,10 +29,7 @@ func newTransformBase64Command(transformUseCase usecase.ITransformUseCase) *cli.
 			if err != nil {
 				return err
 			}
-			fmt.Print(result.Value)
-			if !noNewline {
-				fmt.Println()
-			}
+			printResult(result.Value, noNewline)
 			return nil
 		},
 	}
@@ -58,10 +55,7 @@ func newTransformUrlEncodeCommand(transformUseCase usecase.ITransformUseCase) *c
 			if err != nil {
 				return err
 			}
-			fmt.Print(result.Value)
-			if !noNewline {
-				fmt.Println()
-			}
+			printResult(result.Value, noNewline)
 			return nil
 		},
 	}
@@ -87,10 +81,7 @@ func newTransformEscapeCommand(transformUseCase usecase.ITransformUseCase) *cli.
 			if err != nil {
 				return err
 			}
-			fmt.Print(result.Value)
-			if !noNewline {
-				fmt.Println()
-			}
+			printResult(result.Value, noNewline)
 			return nil
 		},
 	}
@@ -114,5 +105,12 @@ func newTransformCommand(transformUseCase usecase.ITransformUseCase) *cli.Comman
 			newTransformUrlEncodeCommand(transformUseCase),
 			newTransformEscapeCommand(transformUseCase),
 		},
+	}
+}
+
+func printResult(value string, noNewline bool) {
+	fmt.Print(value)
+	if !noNewline {
+		fmt.Println()
 	}
 }

@@ -6,12 +6,12 @@ import (
 	"ryusuke410/golang-cli-tryout/internal/domain/apperrors"
 )
 
-func (u *mathUseCase) Multiply(ctx context.Context, input *mathMultiplyInput) (*MathMultiplyOutput, error) {
-	product, err := u.mathService.Product(input.Numbers)
+func (u *mathUseCase) Multiply(ctx context.Context, input *MathMultiplyInput) (*MathMultiplyOutput, error) {
+	product, err := u.mathService.Product(input.numbers)
 	if err != nil {
 		return nil, apperrors.Wrap(err)
 	}
-	valuestr, err := u.mathService.FormatNumber(product, input.Base)
+	valuestr, err := u.mathService.FormatNumber(product, input.base)
 	if err != nil {
 		return nil, apperrors.Wrap(err)
 	}

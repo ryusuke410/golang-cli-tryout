@@ -1,0 +1,12 @@
+# NOTE: こちらはただの参考として残してあります。
+# usage:
+#   (cd internal && rm -rf mocks && go tool mockery)
+
+all: true
+recursive: true
+dir: 'mocks/{{.InterfaceDirRelative}}'
+structname: '{{.InterfaceName}}'
+packages:
+  ryusuke410/golang-cli-tryout/internal/domain:
+  ryusuke410/golang-cli-tryout/internal/usecase:
+  ryusuke410/golang-cli-tryout/internal/pkg:

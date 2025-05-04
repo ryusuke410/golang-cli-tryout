@@ -8,8 +8,8 @@ import (
 
 // IMathUseCase represents multiple use cases
 type IMathUseCase interface {
-	Add(ctx context.Context, input *mathAddInput) (*MathAddOutput, error)
-	Multiply(ctx context.Context, input *mathMultiplyInput) (*MathMultiplyOutput, error)
+	Add(ctx context.Context, input *MathAddInput) (*MathAddOutput, error)
+	Multiply(ctx context.Context, input *MathMultiplyInput) (*MathMultiplyOutput, error)
 }
 
 // mathUseCase implements IMathUseCase

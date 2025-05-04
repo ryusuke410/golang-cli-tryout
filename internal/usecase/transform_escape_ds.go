@@ -1,15 +1,13 @@
 package usecase
 
-// TransformEscapeOutput represents the output for the escape transform operation
 type TransformEscapeOutput struct {
 	Value string
 }
 
-// TransformEscapeInput represents the input for the escape transform operation
-type transformEscapeInput struct {
-	Text string
+type TransformEscapeInput struct {
+	text string
 }
 
-func NewTransformEscapeInput(text string) (*transformEscapeInput, error) {
-	return &transformEscapeInput{Text: text}, nil
+func NewTransformEscapeInput(text string) (*TransformEscapeInput, error) {
+	return &TransformEscapeInput{text: text}, nil
 }
