@@ -59,3 +59,5 @@ require (
 )
 
 tool github.com/vektra/mockery/v3
+tool ryusuke410/golang-cli-tryout/cmd/cobratryout
+tool ryusuke410/golang-cli-tryout/cmd/urfavetryout

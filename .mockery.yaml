@@ -1,5 +1,18 @@
 all: true
 recursive: true
+dir: |
+  {{- with $parts := (.InterfaceDirRelative | split "/") -}}
+    {{- index $parts 0 -}}/mocks/{{- range $i, $part := $parts -}}
+      {{- if gt $i 1 -}}
+        /{{- if eq $i (sub (len $parts) 1) -}}mock{{- $part -}}{{- else -}}{{- $part -}}{{- end -}}
+      {{- else if eq $i 1 -}}
+        {{- if eq $i (sub (len $parts) 1) -}}mock{{- $part -}}{{- else -}}{{- $part -}}{{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+pkgname: 'mock{{.SrcPackageName}}'
+filename: 'mocks_generated_by_mockery.go'
+structname: "{{.InterfaceName}}"
 packages:
   ryusuke410/golang-cli-tryout/internal/domain:
   ryusuke410/golang-cli-tryout/internal/usecase:
