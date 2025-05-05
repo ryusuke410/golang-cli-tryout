@@ -388,3 +388,7 @@ example:
 ```sh
 go test -timeout 30s -run ^TestNewMathMultiplyInput$ ryusuke410/golang-cli-tryout/internal/usecase
 ```
+
+### coding rules
+
+See `README.dev.md`
